@@ -5,6 +5,9 @@ import {useContext} from "react";
 function ProtectedRoute({children}){
     const {user, loading}= useContext(MyContext);
 
+    console.log("USER IN PROTECTED", user);
+    console.log("LOADING", loading);
+
     if(loading){
         return <h1>Loading...</h1>
     }

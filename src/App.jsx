@@ -45,7 +45,7 @@ function App() {
 
         const data= await response.json();
 
-        // console.log(data);
+        console.log("PROFILE DATA", data);
 
         if(data.success){
           setUser(data.user);
@@ -67,15 +67,29 @@ function App() {
           <BrowserRouter>
             <Routes>
               
-              <Route path="/login" 
-                element={user ? <Navigate to="/app" /> : <LoginForm/>}>
-              </Route>
+              <Route
+                path="/login"
+                element={
+                  loading
+                  ? <h1>Loading...</h1>
+                  : user
+                    ? <Navigate to="/app" />
+                    : <LoginForm />
+                }
+              />
 
               <Route path="/dashboard" element={<Dashboard/>}></Route>
               
-              <Route path="/signup" 
-                element={user ?  <Navigate to="/app" /> :<SignupForm/>}>
-              </Route>
+              <Route
+                path="/signup"
+                element={
+                  loading
+                  ? <h1>Loading...</h1>
+                  : user
+                    ? <Navigate to="/app" />
+                    : <SignupForm/>
+                }
+              />
 
               <Route path="/delete-account" 
                 element={
@@ -86,15 +100,14 @@ function App() {
               </Route>
               
               <Route path="/app" element={
-                <>
 
+                <ProtectedRoute >
                   <div className="app">
-                    <ProtectedRoute >
                       <Sidebar/>
                       <ChatWindow/>
-                    </ProtectedRoute>
                   </div>
-                </>
+
+                </ProtectedRoute>
               }>
               </Route>
 
