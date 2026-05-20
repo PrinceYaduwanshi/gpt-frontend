@@ -5,6 +5,8 @@ import { v1 as uuidv1 } from 'uuid';
 
 import {BACKEND_URL} from "./config.js"
 
+import {logo} from "./assets/logo.png"
+
 function Sidebar(){
 
     const {CurrThreadId, allThread, setAllThread, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats, user}= useContext(MyContext);
@@ -82,7 +84,7 @@ function Sidebar(){
         <section className="sidebar">
             {/* New Chat Button */}
             <button onClick={createNewChat}>
-                <img className="logo" src="src/assets/blacklogo.png" alt= "gpt logo"></img>
+                <img className="logo" src={logo} alt= "gpt-logo"></img>
                 <span>
                     <i className="fa-solid fa-pen-to-square"></i>
                 </span>
