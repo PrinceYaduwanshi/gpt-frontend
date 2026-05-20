@@ -5,7 +5,7 @@ import { v1 as uuidv1 } from 'uuid';
 
 import {BACKEND_URL} from "./config.js"
 
-import {logo} from "./assets/logo.png"
+import logo from "./assets/logo.png"
 
 function Sidebar(){
 
